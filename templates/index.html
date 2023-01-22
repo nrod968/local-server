@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Welcome to NeedleList {% endblock %}</h1>
+    {% for needle in needles %}
+        <a href="{{ url_for('needle', needle_id=needle['id']) }}">
+            <h2>{{ needle['title'] }}</h2>
+        </a>
+        <span class="badge badge-primary">{{ needle['created'] }}</span>
+        <a href="{{ url_for('edit', id=needle['id']) }}">
+            <span class="badge badge-warning">Edit</span>
+        </a>
+        <hr>
+    {% endfor %}
+{% endblock %}

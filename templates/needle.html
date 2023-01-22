@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>{% block title %} {{ needle['title'] }} {% endblock %}</h2>
+    <span class="badge badge-primary">{{ needle['created'] }}</span>
+    <a href="{{ url_for('edit', id=needle['id']) }}">
+        <span class="badge badge-warning">Edit</span>
+    </a>
+    <p>{{ needle['content'] }}</p>
+{% endblock %}
